@@ -4,6 +4,14 @@
 */
 #include <iostream>
 using namespace std;
+namespace stdfe{
+    
+    void First(){
+    cout << "sdsa" << endl;
+}
+
+}
+
 int main()
 {
     //First part
@@ -25,12 +33,13 @@ int main()
     {
         const int A = 167;
         int B = -42;
-        double ptr = 7.27;
-        double* C = &ptr;
+        double C = 7.27;
         const int D = 1993;
         int E = 15760;
         char F = 'F';
-        cout << (((A ^ (~B)) + (*C * D)) != (E - (B << sizeof(F)))) << endl;
+        cout << (((A ^ (~B)) + (C * D)) != (E - (B << sizeof(F)))) << endl;
     }
+    stdfe::First();
     return 0;
 }
+    

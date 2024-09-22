@@ -1,3 +1,7 @@
+/*
+ПІ: Вербицький Євген
+Група: 121.1
+*/
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
