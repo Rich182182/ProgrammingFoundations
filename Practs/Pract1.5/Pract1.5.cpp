@@ -86,9 +86,9 @@ void initializeArray();
 void TaskChooser(vector<int> arr) {
     string task;
     cout << "Введіть номер завдання, впишіть (arr), якщо хочете переписати масив, або (end), щоб завершити програму: ";
-    getline(cin, task);  // Используем getline для считывания строки
+    getline(cin, task);
 
-    if (task.empty()) {  // Проверяем, была ли строка пустой (пользователь нажал Enter)
+    if (task.empty()) {
         cout << "Спробуйте ще раз." << endl;
         TaskChooser(arr);
         return;
@@ -161,7 +161,6 @@ void initializeArray() {
             initializeArray();
             return;
         }
-    // Вывод массива
     for (int i = 0; i < arraySize; i++) {
         cout << arr[i] << " ";
     }
