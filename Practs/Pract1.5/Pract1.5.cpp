@@ -133,6 +133,7 @@ void initializeArray() {
     cout << "Введіть свій масив через SPACE (23 21 45 21), або створіть рандомний (впишіть rand) ";
     getline(cin, input);
     int arraySize;
+    srand(time(0));
     if (input == "rand") {
         arraySize = 5;
         arr.resize(arraySize);
