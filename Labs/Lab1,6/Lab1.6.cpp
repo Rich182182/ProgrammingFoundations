@@ -42,9 +42,6 @@ int main() {
     std::cout << "double: " << doubleVar << std::endl;
     std::cout << "int: " << intVar2 << std::endl;
     std::cout << "char: " << charVar << std::endl;
-
-    return 0;
-
     }
     return 0;
 }
