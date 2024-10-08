@@ -2,7 +2,6 @@
 ПІ: Вербицький Євген
 Група: 121.1
 */
-#include <iomanip>
 #include <sstream>
 #include <cstdlib>
 #include <iostream>
@@ -12,54 +11,65 @@ using namespace std;
 
 void TaskChooser(vector<vector<int>> arr);
 bool CheckCin(int &input);
-void VectorPrint(vector<vector<int>>& arr);
 namespace Tasks {
     void FirstTask(vector<vector<int>> arr) {  
-        VectorPrint(arr);
-        int min = arr[0][0];
-        int indexi = 0;
-        int indexj = 0;
-        for (int i = 0; i < arr.size(); i++) { 
-            for(int j = 1; j < arr[i].size(); j++) {
-                if(arr[i][j] < min){
-                    min = arr[i][j];
-                    indexi = i;
-                    indexj = j;
-                }
-            }
-        }
-        cout <<"Індекс m: "<< indexi << "; індекс n: " << indexj << endl;
-        TaskChooser(arr);
+        // int input; 
+        // cout << "Введіть значення, індекс якого ви хочете знайти в масиві ";
+        // if(CheckCin(input)){
+        
+        //     FirstTask(arr);
+        //     return;
+        // }
+        // for (int i = 0; i < arr.size(); i++) {
+        //     if (arr[i] == temp) {
+        //         flag = false;
+        //         cout <<"Індекс першого входження вашого числа: " << i << endl;
+        //         break;
+        //     }
+        // }
+        // if (flag) {
+        //     cout << "Такого числа немає в масиві, спробуйте ще раз" << endl;
+        //     FirstTask(arr);
+        //     return;
+        // }
+        // TaskChooser(arr);
     }
 
     void SecondTask(vector<vector<int>> arr) {
-        VectorPrint(arr);
-        int max;
-        for (int i = 0; i < arr.size(); i++) { 
-            for(int j = 0; j < arr[i].size(); j++) {
-                if (max == 0 & arr[i][j] < 0) max = arr[i][j];
-                if(arr[i][j] > max & arr[i][j] < 0){
-                    max = arr[i][j];
-                }
-            }
-        }
-        cout << "максимальне від'ємне число: "<< max << endl;
-        TaskChooser(arr);
+        // int min = arr[0];
+        // for (int i = 1; i < arr.size(); i++) {
+        //     if (arr[i] >= 0) {
+        //         if (arr[i] < min) {
+        //             min = arr[i];
+        //         }
+        //     }
+        // }
+        // cout <<"Найменше значення в масиві серед додатніх чисел: " << min << endl; 
+        // TaskChooser(arr);
     }
 
     void ThirdTask(vector<vector<int>> arr) {
-        VectorPrint(arr);
-        int min;
-        for (int i = 0; i < arr.size(); i++) { 
-            for(int j = 0; j < arr[i].size(); j++) {
-                if (min == 0 & arr[i][j] > 0) min = arr[i][j];
-                if(arr[i][j] < min & arr[i][j] > 0){
-                    min = arr[i][j];
-                }
-            }
-        }
-        cout << "мінімальне додатнє число: " << min << endl;
-        TaskChooser(arr);
+        // int min = arr[0];
+        // int minPlace = 0;
+        // int max = arr[0];
+        // int maxPlace = 0;
+        // vector<int> secArr = arr;
+        // for (int i = 1; i < secArr.size(); i++) {
+        //     if (secArr[i] > max) {
+        //         max = secArr[i];  
+        //         maxPlace = i; 
+        //     }
+        //     if (secArr[i] < min) {
+        //         min = secArr[i];
+        //         minPlace = i;
+        //     }
+        // }
+        // secArr[minPlace] = max;
+        // secArr[maxPlace] = min;
+        // for (int i = 0; i < secArr.size(); i++) {
+        //     cout << secArr[i] << endl;
+        // }
+        // TaskChooser(arr);
     }
 }
 
@@ -123,11 +133,12 @@ void TaskChooser(vector<vector<int>> arr) {
 }
 void VectorPrint(vector<vector<int>>& arr){
     for (int i = 0; i < arr.size(); i++) { 
-            for(int j = 0; j < arr[i].size(); j++) {
-                cout << setw(3) << arr[i][j] << " ";
-            }
             cout << endl;
+            for(int j = 0; arr[i].size(); i++) {
+                cout << arr[i][j] << " ";
+            }
         }
+        cout << endl;
 }
 void initializeArray() {
     int m;
@@ -140,7 +151,7 @@ void initializeArray() {
     srand(time(0));
     vector<vector<int>> arr(m, vector<int>(n, 0));
         for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) arr[i][j] = (rand() % 200) - 99; 
+            for (int j = 0; i < n; i++) arr[i][j] = rand() % 100; 
         }
     if (arr.empty()) {
             cout << "Масив порожній. Спробуйте ще раз." << endl;
