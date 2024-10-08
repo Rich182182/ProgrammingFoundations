@@ -131,10 +131,10 @@ void VectorPrint(vector<vector<int>>& arr){
 }
 void initializeArray() {
     int m;
-    cout << "введіть довжину масиву, в якому будуть масиви(m)";
+    cout << "введіть довжину масиву, в якому будуть масиви(m) ";
     if(CheckCin(m)) initializeArray();
     int n;
-    cout << "введіть довжину масивів, які будуть в основному масиві(n)";
+    cout << "введіть довжину масивів, які будуть в основному масиві(n) ";
     if(CheckCin(n)) initializeArray();
     int arraySize;
     srand(time(0));
