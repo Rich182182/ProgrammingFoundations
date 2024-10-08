@@ -141,21 +141,16 @@
 using namespace std;
 
 void TaskChooser(vector<int> arr);
-
+bool CheckCin(int &input);
 namespace Tasks {
     void FirstTask(vector<int> arr) {  
-        string input; 
+        int input; 
         cout << "Введіть значення, індекс якого ви хочете знайти в масиві ";
-        getline(cin, input);
-        int temp;
-        try{
-            temp = stoi(input);
-        }
-        catch(...){
-            cout << "Невірний ввід данних, спробуйте ще раз" << endl;
+        if(CheckCin(input)){
+        
             FirstTask(arr);
+            return;
         }
-        bool flag = true;
         for (int i = 0; i < arr.size(); i++) {
             if (arr[i] == temp) {
                 flag = false;
@@ -213,6 +208,15 @@ using namespace Tasks;
 
 void initializeArray(); 
 
+bool CheckCin(int &input){
+    cin >> input;
+    if(cin.fail()){
+        cin.clear(); 
+        cin.ignore(10000, '\n'); 
+    }
+    cin.ignore();   
+    return cin.fail();
+}
 void TaskChooser(vector<int> arr) {
     string task;
     cout << "Введіть номер завдання, впишіть (arr), якщо хочете переписати масив, або (end), щоб завершити програму: ";
@@ -259,7 +263,7 @@ void TaskChooser(vector<int> arr) {
 
 void initializeArray() {
     vector<int> arr;
-    string input;
+    int input;
     cout << "Введіть свій масив через SPACE (23 21 45 21), або створіть рандомний (впишіть rand) ";
     getline(cin, input);
     int arraySize;

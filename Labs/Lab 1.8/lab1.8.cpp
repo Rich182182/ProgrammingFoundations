@@ -122,15 +122,19 @@ void TaskChooser() {
         }
     }  
 }
-bool CheckCin(int &input){
+bool CheckCin(int &input) {
     cin >> input;
-    if(cin.fail()){
-        cin.clear(); 
+    
+    if (cin.fail()) {
+        cin.clear();
         cin.ignore(10000, '\n'); 
+        cout << "невірний ввід данних, спробуйте ще раз" << endl;
+        return true; 
     }
-    cin.ignore();
-    return cin.fail();
+    cin.ignore(10000, '\n'); 
+    return false; 
 }
+
 int main(){
     TaskChooser();
     return 0;
