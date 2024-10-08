@@ -45,13 +45,21 @@ void SecondTask(){
 void ThirdTask(){
     int input;
     int position;
-    cout << "введіть число в десятковій системі числення:";
-    cin >> input;
+    cout << "введіть число в десятковій системі числення: ";
+    if(CheckCin(input)){
+        
+        FirstTask();
+        return;
+    }
     vector<int> arr;
     VectorInitialize(arr,input);
     VectorPrint(arr);
-    cout << "Введіть номер позиції (починаючи з 0)";
-    cin >> position;
+    cout << "Введіть номер позиції (починаючи з 0) ";
+    if(CheckCin(position)){
+        
+        FirstTask();
+        return;
+    }
     cout << "на вашій позиції знаходиться цифра " << arr[position] << endl;
     TaskChooser();
 }
