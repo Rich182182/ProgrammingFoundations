@@ -40,6 +40,7 @@ void FirstTask(){
     }
     TaskChooser();
 }
+
 void SecondTask(){
     int input1;
     int input2;
@@ -81,6 +82,7 @@ void SecondTask(){
     VectorPrint(result);
     TaskChooser();
 }
+
 vector<int> VectorInitialize(vector<int>& arr, int input){
     if (input == 0) {
         arr.push_back(0);

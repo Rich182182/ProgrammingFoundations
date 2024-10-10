@@ -62,5 +62,6 @@
     "*.tcc": "cpp",
     "ostream": "cpp",
     "iomanip": "cpp"
-  }
+  },
+  "cmake.sourceDirectory": "C:/Univer/OP/Labs/csc/ProgrammingFoundations/googletest"
 }
