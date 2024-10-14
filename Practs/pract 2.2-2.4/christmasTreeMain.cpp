@@ -64,7 +64,6 @@ int main()
         cerr << "Error opening file for writing!" << endl;
         return 1;
     }
-
     outFile << endl;
     char arr[5] = {'@', '#', '$', '^', '&'};
     srand(time(0));
@@ -78,7 +77,6 @@ int main()
         vector<vector<char>> tree(rows, vector<char>(col, ' '));
         int nm = n;
         int stars = 1;
-
         for (int j = 0; j < rows; j++)
         {
             for (int a = 0; a < stars; a++)
@@ -91,14 +89,14 @@ int main()
             stars += 2;
             nm--;
         }
-
         allLayers.push_back(tree);
     }
 
     while (true)
     {
         cout << "\033[2J\033[1;1H";
-        for (vector<vector<char>> tree : allLayers)
+        cout.flush();
+        for (vector<vector<char>> &tree : allLayers)
         {
             printTree(tree);
         }
