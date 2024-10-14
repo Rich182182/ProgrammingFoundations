@@ -56,7 +56,7 @@ void ThirdTask()
     if (CheckCin(input))
     {
 
-        FirstTask();
+        ThirdTask();
         return;
     }
     vector<int> arr;
@@ -66,7 +66,7 @@ void ThirdTask()
     if (CheckCin(position))
     {
 
-        FirstTask();
+        ThirdTask();
         return;
     }
     cout << "на вашій позиції знаходиться цифра " << bool(input & (1 << position)) << endl;
