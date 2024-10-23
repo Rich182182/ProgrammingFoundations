@@ -80,16 +80,14 @@ void removeFromEnd(Node **head)
         return;
     }
     Node *temp = *head;
-    Node *temp2 = temp->next;
     if (head != nullptr)
     {
-        while (temp2->next != nullptr)
+        while (temp->next->next != nullptr)
         {
             temp = temp->next;
-            temp2 = temp->next;
         }
         temp->next = nullptr;
-        Node *temp3 = temp2;
+        Node *temp3 = temp->next;
         delete temp3;
     }
 }
@@ -135,21 +133,24 @@ void reverseList(Node **head)
 }
 void bubbleSort(Node **head)
 {
-    Node *tempHead = *head;
-
-    int listSize = listLength(tempHead);
-    for (int i = 0; i < listSize - 1; i++)
+    if (*head != nullptr)
     {
-        Node *temp = *head;
-        for (int j = 0; j < listSize - 1; j++)
+        Node *tempHead = *head;
+
+        int listSize = listLength(tempHead);
+        for (int i = 0; i < listSize - 1; i++)
         {
-            if (searchElementByIndex(*head, j)->data < searchElementByIndex(*head, j + 1)->data)
+            Node *temp = *head;
+            for (int j = 0; j < listSize - 1; j++)
             {
-                int a = searchElementByIndex(*head, j)->data;
-                temp->data = searchElementByIndex(tempHead, j + 1)->data;
-                temp->next->data = a;
+                if (searchElementByIndex(*head, j)->data < searchElementByIndex(*head, j + 1)->data)
+                {
+                    int a = searchElementByIndex(*head, j)->data;
+                    temp->data = searchElementByIndex(tempHead, j + 1)->data;
+                    temp->next->data = a;
+                }
+                temp = temp->next;
             }
-            temp = temp->next;
         }
     }
 }
@@ -168,6 +169,10 @@ struct DNode
 };
 DNode *circList(Node *head)
 {
+    if (head == nullptr)
+    {
+        return nullptr;
+    }
     DNode *dHead = new DNode{nullptr, nullptr, head->data};
     DNode *dtemp = dHead;
     Node *temp = head->next;
@@ -202,7 +207,7 @@ int main()
     std::cout << "List after reversing: ";
     printList(head);
     bubbleSort(&head);
-    std::cout << "List after bublesort: ";
+    std::cout << "List after bubble sort: ";
     printList(head);
     // Searching for an element
     Node *found = searchElement(head, 30);
