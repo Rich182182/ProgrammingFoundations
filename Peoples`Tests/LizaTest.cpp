@@ -1,4 +1,10 @@
+/**
+ * Done by:
+ * Student Name: Liza Rabirokh
+ * Student Group: 121 1groups
+ */
 #include <iostream>
+#include <vector>
 #include <string>
 #include <fstream> // Для роботи з файлами
 
@@ -8,63 +14,58 @@ int main()
 {
     ofstream outFile("cristmas_tree.txt");
 
-    string green = "\033[32m"; // Зелений колір
-    string brown = "\033[33m"; // Коричневий колір
-    string reset = "\033[0m";  // Скидання кольору
+    string green = "\033[32m";
+    string brown = "\033[33m";
+    string reset = "\033[0m";
 
     string toys = "@$%#";
     srand(time(0));
 
-    int n; // Кількість рівнів ялинки
+    int n;
     cout << "Введіть кількість рівнів ялинки: ";
     cin >> n;
 
-    // Малюємо рівні ялинки
     for (int level = 1; level <= n; level++)
-    {                         // Проходимо по кожному рівню
-        int rows = level + 2; // Кількість рядків для кожного рівня (наприклад, 2, 3, 4,...)
+    {
+        int rows = level + 2;
+        int col = 2 * n + 3;
+        int nm = n;
+        vector<vector<char>> tree(rows, vector<char>(col, ' '));
         for (int row = 1; row <= rows; row++)
-        { // Проходимо по кожному рядку в рівні
-            // Друкуємо пробіли для вирівнювання трикутника
-            for (int space = 2; space <= n + 3 - row; space++)
-            {
-                cout << " ";
-                outFile << " ";
-            }
-            // Друкуємо зірочки
-            cout << green;
+        {
             for (int star = 1; star <= 2 * row - 1; star++)
             {
                 if (rand() % 5 == 0)
                 {
                     char toy = toys[rand() % toys.length()];
-                    cout << toy; // Вибираємо випадкову іграшку
-                    outFile << toy;
+                    tree[row - 1][n + star + 1 - row] = toy;
                 }
                 else
                 {
-                    cout << "*"; // Друкуємо зірочку
-                    outFile << "*";
+                    tree[row - 1][n + star + 1 - row] = '*';
                 }
             }
-
-            cout << reset << endl;
+        }
+        for (int i = 0; i < tree.size(); i++)
+        {
+            for (int j = 0; j < tree[i].size(); j++)
+            {
+                cout << tree[i][j];
+                outFile << tree[i][j];
+            }
+            cout << endl;
             outFile << endl;
         }
     }
-
-    // Друкуємо стовбур ялинки
-    int trunkHeight = 2; // Висота стовбура
-    int trunkWidth = 3;  // Ширина стовбура (непарне число)
+    int trunkHeight = 2;
+    int trunkWidth = 3;
     for (int t = 0; t < trunkHeight; ++t)
     {
-        // Друкуємо пробіли для вирівнювання стовбура
         for (int space = 1; space <= n; space++)
         {
             cout << " ";
             outFile << " ";
         }
-        // Друкуємо зірочки для стовбура
         cout << brown;
         for (int star = 1; star <= trunkWidth; star++)
         {
